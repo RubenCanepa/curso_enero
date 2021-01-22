@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Informacion del Entorno.{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <i>{{ "now"|date("d/m/Y") }}</i>
+            
+            {%  if ((app.request.host != 'misitio.com')) %}
+            <div style="margin: auto; padding-bottom: 3px; border: solid 5px red; font-size: 12px; background-color: #00FF00;">
+                <p style="line-height: 100%" >
+                    <h3>IMPORTANTE:: Ambiente de Prueba !!!!</h3>
+                    <br>
+                    Servidor Utilizado: <b>http://{{app.request.host}}</b> 
+                    <br> 
+                     Cliente IP: <b>{{app.request.clientIp}}</b> 
+                    <br>
+                    {{app.request | raw}}
+
+                </p>
+            </div>        
+            {% endif %} 
+
+        
+        {% endblock %}
+    </body>
+</html>

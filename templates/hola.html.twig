@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Bienvenidos.{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+        
+            {% if numero > 50 %}
+                <div> 
+                   <h1> Buenos dias visitante nro {{numero}}, ganaste un iphone !!!</h1>
+                </div>
+                </br>
+            {% endif %}
+
+            {% for i in 0..20 %}
+                <div> 
+                    {{titulo | upper}} -- Versi&oacute;n: {{i}}
+                </div>
+            {% endfor %}
+        
+        {% endblock %}
+    </body>
+</html>
