@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Informacion del Entorno.{% endblock %}</title>
+        {% block stylesheets %}{% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </head>
+    <body>
+        {% block body %}
+            <i>{{ "now"|date("d/m/Y") }}</i>
+            
+            <h3>Lista de Usuarios en BD</h3>
+            {% if usuarios|length  > 0 %}
+
+                {% for usuario in usuarios %}
+                    <div> 
+                        {{usuario.apellido}} {{usuario.nombre}} {{usuario.email}} 
+                    </div>
+                {% endfor %}
+
+            {% else %}
+                <spam>Sin Usuarios.</spam>
+            {% endif %}
+
+            <h3>Lista de Productos en BD</h3>
+            {% if productos|length  > 0 %}
+                {% for producto in productos %}
+                    <div> 
+                        {{producto.nombre}} 
+                    </div>
+                {% endfor %}
+            {% else %}
+                <spam>Sin Productos.</spam>
+            {% endif %}
+        
+        {% endblock %}
+    </body>
+</html>
